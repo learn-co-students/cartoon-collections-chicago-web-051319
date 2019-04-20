@@ -1,19 +1,20 @@
 def roll_call_dwarves (dwarf_names)
-  puts .each_with_index (dwarf_names) |name, index + 1|
+  dwarf_names.each_with_index do |name, index|
+    puts "#{index + 1}. #{name}"
+  end 
 end
 
 def summon_captain_planet(planeteer_calls)
-  # capitalize each element and add an exclamation point at the end
-  # map or collect 
+ planeteer_calls.map! {|name| name.capitalize + "!" }
 end
 
 def long_planeteer_calls(planeteer_calls)
-  # tell us if any of the calls are longer than four characters
+  planeteer_calls.any? { |call| call.length > 4 }
 end
 
 def find_the_cheese(array_of_strings)
-  # find and return the first string that is a type of cheese.
   cheese_types = ["cheddar", "gouda", "camembert"]
-  #If, sadly, a list of ingredients does not include cheese, return nil 
-  # include method for him 
+  array_of_strings.find do |maybe_cheese|
+  cheese_types.include?(maybe_cheese)
+end
 end
